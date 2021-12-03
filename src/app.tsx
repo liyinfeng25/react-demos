@@ -14,6 +14,9 @@ import MapList from './components/map-list'
 import File from './components/File'
 import Calculator from './components/state'
 
+import DragPage from './components/drag/index'
+import FileUpload from './components/fileupload/index'
+
 interface IPros {
   name: string,
   age: number
@@ -42,6 +45,18 @@ function App () {
             <Shop/>
           </Route>
         </Switch>
+
+        <br/><br/><br/>
+
+        <DragPage></DragPage>
+
+        <br/><br/>
+
+        <br/><br/><br/>
+
+        <FileUpload></FileUpload>
+
+        <br/><br/>
 
         <Tick></Tick>
         <Tick></Tick>
