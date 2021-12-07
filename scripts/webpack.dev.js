@@ -14,5 +14,6 @@ module.exports = merge(common, {
     clientLogLevel: 'silent',
     disableHostCheck: true,
     compress: false,
+    historyApiFallback: true,
   }
 })
