@@ -62,8 +62,8 @@ const App = () => {
                     <Route path={item.path} key={item.path} component={item.component} exact />
                   ))
                 }
+                <Redirect from='/' to='/product-list'></Redirect>
               </Switch>  
-              <Redirect from='/' to='/product-list'></Redirect>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>底部说明</Footer>

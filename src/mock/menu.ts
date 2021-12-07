@@ -4,7 +4,7 @@ export const menuList = [
     title: '菜单1',
     isLeaf: false,
     icon: 'shop',
-    link: '/shop',
+    link: '',
     children: [
       {
         code: 1110,
@@ -46,8 +46,8 @@ export const menuList = [
             code: 22210,
             title: '菜单2-2-1',
             isLeaf: true,
-            icon: '',
-            link: ''
+            icon: '/product-list',
+            link: '/product-list'
           },
           {
             code: 22211,
