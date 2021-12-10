@@ -14,8 +14,8 @@ import MapList from './components/map-list'
 import File from './components/File'
 import Calculator from './components/state'
 
-import DragPage from './components/drag/index'
-import FileUpload from './components/fileupload/index'
+import DragPage from './pages/drag/index'
+import FileUpload from './pages/file/fileupload/index'
 
 interface IPros {
   name: string,

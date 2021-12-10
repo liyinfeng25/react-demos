@@ -1,3 +1,7 @@
+/**
+ * File 上传文件格式判断
+ */
+
 import React from 'react'
 import axios from 'axios'
 

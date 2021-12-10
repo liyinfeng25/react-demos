@@ -1,3 +1,7 @@
+/**
+ * 
+ * React 状态提升
+ */
 import React from 'react';
 
 const scaleNames: any = {
@@ -44,7 +48,7 @@ class TemperatureInput extends React.Component<any, any> {
   }
 }
 
-//状态提升
+
 class Calculator extends React.Component<any, any> {
   constructor(props: any) {
     super(props)
