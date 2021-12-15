@@ -118,13 +118,12 @@ const App = (props: any) => {
     <Layout>
       <Sider className="layout-sider" trigger={null} collapsible collapsed={menuCollapsed}>
         <div className="logo"></div>
+        {/* 菜单列表 */}
         <div className="menu-list">
           {
             defaultSelectedKeys && <Menu
               theme="dark"
               mode="inline"
-              // defaultSelectedKeys={['22210']}
-              // defaultOpenKeys={['222','2221']}
               defaultSelectedKeys={[defaultSelectedKeys?.code]}
               defaultOpenKeys={defaultOpenKeys}
             >
@@ -134,13 +133,11 @@ const App = (props: any) => {
         </div>
         {/* 菜单折叠 */}
         <div className="slider-btn" onClick={() => setMenuCollapsed(!menuCollapsed)}>
-            <span><Icon type={menuCollapsed ? 'menu-unfold' : 'menu-fold'} /> </span>
-          </div>
+          <span><Icon type={menuCollapsed ? 'menu-unfold' : 'menu-fold'} /> </span>
+        </div>
       </Sider>
 
-      {/* 
-        Suspense 文档：https://zh-hans.reactjs.org/docs/react-api.html#reactsuspense
-       */}
+    
       <Suspense fallback={<div></div>}>
         <Layout>
             <Header className="content-header" >header</Header>
@@ -158,7 +155,6 @@ const App = (props: any) => {
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>底部说明</Footer>
-          
         </Layout>
       </Suspense>
     </Layout>
@@ -167,5 +163,3 @@ const App = (props: any) => {
 
 export default withRouter(App);
 // export default App;
-
-
