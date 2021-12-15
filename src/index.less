@@ -9,16 +9,40 @@ body {
 
 .font{font-size:20px;margin:10px 0;color:#333;}
 
-.logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-}
+
 .layout-sider {
   overflow: auto;
   height: 100vh;
   position: fixed!important;
   left: 0;
+
+  .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+
+  .menu-list{
+    flex: 1 1 0%;
+    overflow: hidden auto;
+  }
+
+  .slider-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: hsla(0,0%,100%,.65);
+    cursor: pointer;
+    transition: border-color .3s,padding .1s cubic-bezier(.215,.61,.355,1);
+    span {
+      display: block;
+      width: 100%;
+      padding-left: 16px;
+    }
+  }
 }
 .content-header {
   background: #fff!important;
@@ -34,4 +58,5 @@ body {
   padding: 24px;
   background: #fff;
   text-align: center;
+  overflow:scroll;
 }

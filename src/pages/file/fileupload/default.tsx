@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 
-function defaultFileUpload () {
+function defaultFileUpload (props: any) {
+
+  console.log('fileUpload 非 Route 组件', props);
+  
 
   const [file,setFile] = React.useState('');
 

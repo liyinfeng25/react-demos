@@ -8,7 +8,7 @@ const WebpackBar = require('webpackbar')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { PROJECT_PATH, isDev } = require('./config/contant')
 
-console.log('===>', isDev)
+// console.log('===>', isDev)
 
 module.exports = {
   entry: {
@@ -17,6 +17,7 @@ module.exports = {
   output: {
     filename: `js/[name]${isDev ? '' : '.[hash:8]'}.js`,
     path: resolve(PROJECT_PATH, './dist'),
+    publicPath: '/',
     // clean: true
   },
   module: {
@@ -75,8 +76,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      '@': resolve(PROJECT_PATH, './src'),
       '@assets': resolve(PROJECT_PATH, './src/assets'),
+      '@components': resolve(PROJECT_PATH, './src/components'),
+      '@': resolve(PROJECT_PATH, './src'),
     }
   },
   plugins:[

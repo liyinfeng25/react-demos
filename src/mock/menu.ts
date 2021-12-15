@@ -30,7 +30,7 @@ export const menuList = [
     parentCode: 'root',
     title: '前端拖拽',
     isLeaf: false,
-    icon: '',
+    icon: 'drag',
     link: '',
     children: [
       {
