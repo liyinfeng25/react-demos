@@ -16,6 +16,11 @@ export default [
     component: React.lazy(() => import('./pages/product-list'))
   },
   {
+    path: '/product-list/:id',
+    name: '商品详情页面',
+    component: React.lazy(() => import('./pages/product-list/detail'))
+  },
+  {
     path: '/file-check',
     name: '上传文件格式判断',
     component: React.lazy(() => import('./pages/file/fileCheck'))
