@@ -9,6 +9,7 @@ import ScrollToTop from '@components/scrollToTop'
 import '@assets/iconfont/iconfont.css'
 import './index.less'
 import App from './app'
+import '@/utils/axios'
 
 ReactDOM.render(
   <ConfigProvider>
