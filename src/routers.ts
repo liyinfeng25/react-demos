@@ -28,7 +28,7 @@ export default [
   {
     path: '/file-upload',
     name: '文件上传',
-    component: React.lazy(() => import('./pages/file/fileupload/index'))
+    component: React.lazy(() => import('./pages/file/fileUpload'))
   },
   {
     path: '/drag',
