@@ -12,6 +12,7 @@ axios.interceptors.request.use((config) => {
 // 响应拦截
 axios.interceptors.response.use((res) => {
   const {data}  = res;
+  // console.log('res', res)
   if (data?.code === 0) {
     return data
   } else {

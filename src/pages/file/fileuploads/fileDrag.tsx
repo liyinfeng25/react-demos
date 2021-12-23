@@ -91,7 +91,7 @@ function defaultFileUpload (props: any) {
       <ProgressComp percent={progress} />
       <Divider />
       <div className="imgs">
-        { imgSrc.length > 0 &&  imgSrc.map((src: any, index: number) => (
+        { imgSrc?.length > 0 &&  imgSrc.map((src: any, index: number) => (
           <img src={src} alt="" key={index} />
         ))}
         </div>
