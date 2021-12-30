@@ -44,6 +44,40 @@ export const menuList = [
     ]
   },
   {
+    code: '444',
+    parentCode: 'root',
+    title: 'react 小demo',
+    isLeaf: false,
+    icon: 'file',
+    link: '',
+    children: [
+      {
+        code: '4440',
+        parentCode: '444',
+        title: 'class 组件引用 hooks',
+        isLeaf: true,
+        icon: '',
+        link: '/classAndHooks'
+      },
+      {
+        code: '4441',
+        parentCode: '444',
+        title: '倒计时',
+        isLeaf: true,
+        icon: '',
+        link: '/cutdown'
+      },
+      {
+        code: '4442',
+        parentCode: '444',
+        title: 'redux状态管理',
+        isLeaf: true,
+        icon: '',
+        link: '/redux'
+      }
+    ]
+  },
+  {
     code: '222',
     parentCode: 'root',
     title: 'demo',

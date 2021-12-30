@@ -1,38 +1,26 @@
-// import React from 'react';
-// import { useParams } from 'react-router-dom'
-// import { withHooksHoc } from './withHooksHOC'
-
-
-// function Shop (props: any) {
-//   return (
-//     <div>
-//       我是店铺管理页面,size: {props.size}
-//     </div>
-//   )
-// }
-
-// export default withHooksHoc(Shop);
-
-
 import React from 'react';
-import { useParams } from 'react-router-dom'
-import { WithHooksHoc, withScrollHoc } from './withHooksHOC'
-import { useScroll } from '@/components/useScroll'
+// import { connect } from 'react-redux'
 
 
 function Shop (props: any) {
   console.log('===>', props)
-
   return (
-    <WithHooksHoc>
-      {(size)=> (
-        <div>
-          我是店铺管理页面,size: {size},
-        </div>
-      )}
-    </WithHooksHoc>
-   
+    <div>
+      我是店铺管理页面
+    </div>
   )
 }
 
-export default withScrollHoc(Shop);
+const mapStateToProps = (state: any) => {
+  return {
+    loading: state.loading,
+  }
+}
+
+export default Shop;
+// export default connect((state: any) => {
+//   console.log('===>', state)
+//   return {
+//     ...state
+//   }
+// })(Shop);

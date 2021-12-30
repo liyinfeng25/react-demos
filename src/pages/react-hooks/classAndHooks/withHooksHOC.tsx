@@ -11,22 +11,18 @@
 
 
 import React from 'react';
-import useScreenSize from './useScreenSize'
+import useScreenSize from '@/components/useScreenSize'
 import { useScroll } from '@/components/useScroll'
 
-export const WithHooksHoc = (Comp) => {
+export const WithHooksHoc = (Comp: any) => {
   const size = useScreenSize()
-
   return Comp.children(size)
 }
 
 
-export const withScrollHoc = (Comp) => {
+export const withScrollHoc = (Comp: any) => {
   return (props: any) => {
     const position = useScroll()
-
-    console.log(position);
-    
     return <Comp position={position} {...props} />
   }
 }

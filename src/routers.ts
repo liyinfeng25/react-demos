@@ -6,6 +6,21 @@ export default [
     component: React.lazy(() => import('./pages/shop'))
   },
   {
+    path: '/classAndHooks',
+    name: 'class 组件引用 hooks',
+    component: React.lazy(() => import('./pages/react-hooks/classAndHooks/index'))
+  },
+  {
+    path: '/cutdown',
+    name: '倒计时',
+    component: React.lazy(() => import('./pages/react-hooks/cutdown/index'))
+  },
+  {
+    path: '/redux',
+    name: 'redux状态管理',
+    component: React.lazy(() => import('./pages/react-hooks/redux/index'))
+  },
+  {
     path: '/shop',
     name: '店铺管理页面',
     component: React.lazy(() => import('./pages/shop'))
