@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // 任务的名称
+      "label": "git-push",
+      // 任务类别，shell代表脚本
+      "type": "shell",
+      // 任务脚本，可以是yarn/npm/git 等
+      "command": "git",
+      // 命令参数
+      "args": [
+        "fetch"
+      ],
+      // 声明无需扫描脚本输出
+      "problemMatcher": []
+    }
+  ]
+}

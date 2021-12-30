@@ -29,8 +29,6 @@ const App = (props: any) => {
     location.pathname === '/' && setDefaultSelectedKeys({code: ''})
   },[location])
 
-  console.log('app ====>', props);
-  
 
   // 渲染菜单
   const renderMenuItem = (item: any) => {
