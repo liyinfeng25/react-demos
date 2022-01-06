@@ -12,6 +12,7 @@ import {
 import { Layout, Menu, Icon } from 'antd';
 import { flattenDeep, lowerFirst, memoize } from 'lodash';
 import routers from './routers';
+import MenuDrag from '@/components/menuDrag'
 // 菜单渲染数据
 import { menuList } from './mock/menu';
 import 'antd/dist/antd.css';
@@ -19,11 +20,16 @@ import './index.less';
 
 const { Header, Content, Footer, Sider } = Layout;
 
+// 初始菜单的宽度
+const INITIAL_WIDTH = 200;
+
 const App = (props: any) => {
   const [defaultSelectedKeys, setDefaultSelectedKeys] = React.useState<any>();
   const [defaultOpenKeys, setDefaultOpenKeys] = React.useState<any>();
   const [menuCollapsed, setMenuCollapsed] = React.useState<any>(false);
   const location = useLocation()
+
+  const [width, setWidth] = React.useState<any>(INITIAL_WIDTH);
 
   React.useEffect(() => {
     location.pathname === '/' && setDefaultSelectedKeys({code: ''})
@@ -114,7 +120,7 @@ const App = (props: any) => {
 
   return (
     <Layout>
-      <Sider className="layout-sider" trigger={null} collapsible collapsed={menuCollapsed}>
+      <Sider className="layout-sider" trigger={null} collapsible collapsed={menuCollapsed} width={width}>
         <div className="logo"></div>
         {/* 菜单列表 */}
         <div className="menu-list">
@@ -134,10 +140,12 @@ const App = (props: any) => {
           <span><Icon type={menuCollapsed ? 'menu-unfold' : 'menu-fold'} /> </span>
         </div>
       </Sider>
+      
+      {/* 菜单拖拽拉伸 */}
+      { !menuCollapsed && <MenuDrag width={width} change={(width: number) =>setWidth(width)} />}
 
-    
       <Suspense fallback={<div></div>}>
-        <Layout>
+        <Layout >
             <Header className="content-header" >header</Header>
             <Content className="content-main">
               <div className="main-box" style={{ height: window.screen.height-270 }}>
