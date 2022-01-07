@@ -13,7 +13,6 @@
 
 // export default withHooksHoc(Shop);
 
-
 import React from 'react';
 import { WithHooksHoc, withScrollHoc } from './withHooksHOC'
 
