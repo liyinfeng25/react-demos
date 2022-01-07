@@ -1,3 +1,5 @@
+import undoable, { includeAction } from 'redux-undo'
+
 let nextTodoId = 0
 
 // 新增TODO
@@ -15,7 +17,7 @@ export const toggleTodo = (id: number) => ({
 
 const DefaultData: any = []
 
-export default (state = DefaultData, action: any) => {
+const todos = (state = DefaultData, action: any) => {
   console.log('===========  todos  =====================');
   
   switch (action.type) {
@@ -38,3 +40,9 @@ export default (state = DefaultData, action: any) => {
       return state
   }
 }
+
+const undoableTodos = undoable(todos, {
+  filter: includeAction(['ADD_TODO', 'TOGGLE_TODO'])
+})
+
+export default undoableTodos;

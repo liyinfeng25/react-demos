@@ -1,6 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import Todo from './todos'
 import AddTodo from './addTodos'
 import { addTodo, toggleTodo } from '@/store/todos'
@@ -11,16 +12,22 @@ const TodoList = (props: any) => {
   console.log('TodoList=====>', props)
  
   // bindActionCreators
-  const { todos,visibilityFilter,userInfo } = props
-  const { addTodo, toggleTodo, setVisibilityFilter, updateUserinfo } = props
+  const { todos,visibilityFilter,userInfo, canUndo, canRedo } = props
+  const { toggleTodo, setVisibilityFilter, updateUserinfo,onUndo, onRedo } = props
 
   // mapDispatchToProps 方式
   // const { todos,visibilityFilter,userInfo, onTodoClick, updateInfo, onTodoAddClick, onFilterClick } = props
 
   return (
     <div>
-      {/* <AddTodo onClick={(text: string) => props.addTodo(text)}></AddTodo> */}
-      <AddTodo addTodo={addTodo}></AddTodo>
+      <AddTodo addTodo={(text: string) => props.dispatch(addTodo(text))}></AddTodo>
+      {/* <AddTodo addTodo={addTodo}></AddTodo> */}
+      <button onClick={onUndo} disabled={!canUndo}>
+        撤销
+      </button>
+      <button onClick={onRedo} disabled={!canRedo}>
+        重置
+      </button>
 
       <ul>
         {todos.map((todo: any, index: number) => (
@@ -72,23 +79,35 @@ const getVisibleTodos = (todos: any, filter: string) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    onTodoAddClick: (text: string) => dispatch(addTodo(text)),
-    onTodoClick: (id: number) => dispatch(toggleTodo(id)),
-    onFilterClick: (filter: string) => dispatch(setVisibilityFilter(filter)),
-    updateInfo: (info: any) => dispatch(updateUserinfo(info)),
+    // addTodo: (text: string) => dispatch(addTodo(text)),
+    toggleTodo: (id: number) => dispatch(toggleTodo(id)),
+    setVisibilityFilter: (filter: string) => dispatch(setVisibilityFilter(filter)),
+    updateUserinfo: (info: any) => dispatch(updateUserinfo(info)),
+    onUndo: () => dispatch(UndoActionCreators.undo()),
+    onRedo: () => dispatch(UndoActionCreators.redo()),
+    dispatch
   }
 }
 
 // export default TodoList
 export default connect(
   (state: any, ownProps: any) => {
-    console.log('state==>', state, ownProps);
+    console.log('store state 数据==>', state, ownProps);
     return {
-      todos: getVisibleTodos(state.todos, state.visibilityFilter),
+      todos: getVisibleTodos(state.todos.present, state.visibilityFilter),
       visibilityFilter: state.visibilityFilter,
-      ...state.globalData
+      ...state.globalData,
+      canUndo: state.todos.past.length > 0,
+      canRedo: state.todos.future.length > 0
     }
   },
-  // mapDispatchToProps
-  (dispatch: any) => bindActionCreators({ addTodo, toggleTodo, setVisibilityFilter, updateUserinfo }, dispatch)
+  mapDispatchToProps
+  // (dispatch: any) => bindActionCreators({ 
+  //   addTodo, 
+  //   toggleTodo, 
+  //   setVisibilityFilter, 
+  //   updateUserinfo,
+  //   onUndo: () => UndoActionCreators.undo(),
+  //   onRedo: () => UndoActionCreators.redo(),
+  // }, dispatch)
 )(TodoList);
