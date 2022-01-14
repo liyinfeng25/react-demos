@@ -1,0 +1,99 @@
+.falls-flow-h5,
+.falls-flow-pc {
+  background-color: #f3f4f9;
+}
+
+// Multi-column 布局方案
+
+.falls-flow-pc {
+  column-count: 7;
+  column-gap: 10px;
+  column-width: 50px;
+  .falls-flow-item {
+
+    margin: 16px 12px;
+    border: 1px solid #000;
+    break-inside: avoid-column;
+
+    img {
+      width: 100%;
+    }
+
+    .title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: #000;
+      position: relative;
+      padding-top: 16px;
+    }
+  }
+}
+
+
+// Grid 方案
+// .falls-flow-pc {
+//   display: grid;
+//   // grid-template-rows: 1fr 1fr 1fr; // 分为3行
+//   grid-template-columns: repeat(5, 1fr); // 分为3列
+//   column-gap:5px; // 列间距5px
+//   grid-column-gap: 4px;
+//   overflow-y: scroll;
+
+//   .falls-flow-item {
+//     width: 50%;
+//     grid-row-start: 'auto';
+
+//     // margin: 16px 12px;
+//     // border: 1px solid #000;
+//     // break-inside: avoid-column;
+
+//     img {
+//       width: 100%;
+//     }
+
+//     .title {
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//       overflow: hidden;
+//       color: #000;
+//       position: relative;
+//       padding-top: 16px;
+//     }
+//   }
+// }
+
+// .Flexbox 实现瀑布流
+// .falls-flow-pc {
+//   display: flex; // 设置为Flex容器
+//   flex-direction: row; // 主轴方向设置为水平方向
+
+//   .column {
+//     display: flex; // 设置为Flex容器
+//     flex-direction: column; // 主轴方向设置为垂直方向
+//     // margin-right: 24px
+//   }
+
+//   .falls-flow-item {
+//     width: 100%;
+//     margin: 16px 0;
+
+//     .img-box {
+//       max-height: 300px;
+//       overflow: hidden;
+//     }
+//     img {
+//       width: 70%;
+//       height:100%
+//     }
+
+//     .title {
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//       overflow: hidden;
+//       color: #000;
+//       position: relative;
+//       padding-top: 16px;
+//     }
+//   }
+// }

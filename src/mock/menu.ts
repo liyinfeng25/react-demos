@@ -78,46 +78,28 @@ export const menuList = [
     ]
   },
   {
-    code: '222',
+    code: '555',
     parentCode: 'root',
-    title: 'demo',
+    title: '布局',
     isLeaf: false,
     icon: 'laptop',
     link: '',
     children: [
       {
-        code: '2220',
-        parentCode: '222',
-        title: '菜单2-1',
+        code: '5550',
+        parentCode: '555',
+        title: '多栏瀑布流布局',
         isLeaf: true,
         icon: '',
-        link: '/product-list1'
+        link: '/falls-flow-pc'
       },
       {
-        code: '2221',
-        parentCode: '222',
-        title: '菜单2-2',
-        isLeaf: false,
+        code: '5551',
+        parentCode: '555',
+        title: '两列瀑布流布局',
+        isLeaf: true,
         icon: '',
-        link: '/shop',
-        children: [
-          {
-            code: '22210',
-            parentCode: '2221',
-            title: '菜单2-2-1',
-            isLeaf: true,
-            icon: '',
-            link: '/product-list'
-          },
-          {
-            code: '22211',
-            parentCode: '2221',
-            title: '菜单2-2-2',
-            isLeaf: true,
-            icon: '',
-            link: ''
-          },
-        ]
+        link: '/falls-flow-h5',
       },
     ]
   }
