@@ -11,6 +11,16 @@ export default [
     component: React.lazy(() => import('./pages/react-hooks/classAndHooks/index'))
   },
   {
+    path: '/falls-flow-pc',
+    name: '多栏瀑布流布局',
+    component: React.lazy(() => import('./pages/fallsFlow/pc'))
+  },
+  {
+    path: '/falls-flow-h5',
+    name: '两列瀑布流布局',
+    component: React.lazy(() => import('./pages/fallsFlow/h5'))
+  },
+  {
     path: '/cutdown',
     name: '倒计时',
     component: React.lazy(() => import('./pages/react-hooks/cutdown/index'))
