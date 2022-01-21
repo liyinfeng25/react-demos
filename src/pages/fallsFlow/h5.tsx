@@ -40,38 +40,35 @@ function FallsflowPc() {
   const handleClick = (index: number, imgIndex: number) => {
     setCurcolumnIndex(index)
     setCurIndex(imgIndex+1)
-    const newData = [...data]
-    newData[index].splice(imgIndex+1, 0, { isTuijian: true, componentName: 'Tuijian' });
-    console.log('===>', newData);
-    setData(newData);
 
     setTimeout(() => {
+      const newData = [...data]
+      newData[index].splice(imgIndex+1, 0, { isTuijian: true, componentName: 'Tuijian' });
+      setData(newData);
       setCurIndex(null)
-    }, 400)
+    }, 200)
   }
 
   return (
     <div className="falls-flow-h5">
       {data &&
         data.map((item: any, index: number) => (
-          <div
-            className="column"
-            // style={{ width: `calc((100%)/${COLUMN_COUNT})` }}
-          >
+          <div className="column">
             {
               item.map((imgItem: any, imgIndex: number) => (
                 imgItem.isTuijian
                 ? returnComp(imgItem.componentName)
-                : <div className="falls-flow-item" onClick={() => handleClick(index,imgIndex )}
-                  style={ imgIndex === curIndex && curcolumnIndex === index ? {marginTop: '300px'} : {}}
-                >
+                : 
+                  <div className="falls-flow-item" onClick={() => handleClick(index,imgIndex )}
+                    style={ imgIndex === curIndex && curcolumnIndex === index ? {marginTop: '300px'} : {}}
+                  >
                     <div className="img-box">
                       <img
                         src={`https://${imgItem.designTemplateImageUrl}?x-oss-process=image/resize,w_600/sharpen,100/format,webp`}
                         alt=""
                       />
                     </div>
-                    <div className="title">{imgItem.templateTitle}</div>
+                    <div className="title">{imgIndex}:{curIndex}:{imgItem.templateTitle}</div>
                   </div>
                 ))
             }

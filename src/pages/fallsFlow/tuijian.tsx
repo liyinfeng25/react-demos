@@ -1,9 +1,9 @@
 import React from 'react';
 import './h5.less'
 
-function Tuijian () {
+function Tuijian (props: any) {
   return (
-    <div className="tuijian" style={{ }}>
+    <div className="tuijian" >
     推荐模块
     </div>
   )
