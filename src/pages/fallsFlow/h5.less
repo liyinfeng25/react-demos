@@ -1,0 +1,48 @@
+// .Flexbox 实现瀑布流
+.falls-flow-h5 {
+  width: 700px;
+  border: 1px solid #000000;
+  background-color: #f3f4f9;
+  display: flex; // 设置为Flex容器
+  flex: 1;
+  flex-direction: row; // 主轴方向设置为水平方向
+
+  .column {
+    display: flex; // 设置为Flex容器
+    flex-direction: column; // 主轴方向设置为垂直方向
+    // margin-right: 24px
+  }
+
+  .falls-flow-item {
+    margin: 16px 0;
+    transition: all .2s;
+
+    .img-box {
+      max-height: 300px;
+      overflow: hidden;
+    }
+    img {
+      width: 70%;
+      height:100%
+    }
+
+    .title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: #000;
+      position: relative;
+      padding-top: 16px;
+    }
+  }
+}
+
+.tuijian {
+  background: red;
+  height: 300px;
+  width: 80%;
+  margin: 16px auto;
+  opacity: 1;
+  display: inline-block;
+  transition: all .2s;
+}
